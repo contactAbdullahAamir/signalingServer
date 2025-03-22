@@ -87,12 +87,13 @@ io.on("connection", (socket) => {
     }
   });
 });
+
 app.get("/", (req, res) => {
-  res.send("Server is running well");
-  // Or if you want to serve an HTML file:
-  // res.sendFile(__dirname + '/public/index.html');
+  res.send("Server is running");
 });
-app.use(express.static('public'));
+
+app.use(express.static("public"));
+
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
