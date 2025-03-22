@@ -9,7 +9,6 @@ const io = socketIO(server, {
     origin: "*",
     methods: ["GET", "POST"],
   },
-  transports: ["polling"], // Force long polling for Vercel compatibility
 });
 
 const PORT = process.env.PORT || 3000;
@@ -88,13 +87,12 @@ io.on("connection", (socket) => {
     }
   });
 });
-
 app.get("/", (req, res) => {
   res.send("Server is running");
+  // Or if you want to serve an HTML file:
+  // res.sendFile(__dirname + '/public/index.html');
 });
-
-app.use(express.static("public"));
-
+app.use(express.static('public'));
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
