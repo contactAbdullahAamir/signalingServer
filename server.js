@@ -88,7 +88,7 @@ io.on("connection", (socket) => {
   });
 });
 app.get("/", (req, res) => {
-  res.send("Server is running");
+  res.send("Server is running well");
   // Or if you want to serve an HTML file:
   // res.sendFile(__dirname + '/public/index.html');
 });
